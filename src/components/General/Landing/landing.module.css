@@ -1,0 +1,12 @@
+.iframe {
+  height: 250px;
+  width: 450px;
+}
+
+@media (max-width: 850px) {
+  .iframe {
+    height: auto;
+    width: auto;
+    background-color: #39c9e2;
+  }
+}

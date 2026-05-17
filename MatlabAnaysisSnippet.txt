@@ -1,0 +1,27 @@
+%Update UID before adding to new channel
+
+% Template MATLAB code for reading data from a private channel, analyzing
+% the data and storing the analyzed data in another channel.
+
+% Prior to running this MATLAB code template, assign the channel variables.
+% Set 'readChannelID' to the channel ID of the channel to read from. Since 
+% this is a private channel, also assign the read API Key to the 'readAPIKey'
+% variable. You can find the read API Key on the right side pane of this page.
+
+% To store the analyzed data, you will need to write it to a channel other
+% than the one you are reading data from. Assign this channel ID to the
+% 'writeChannelID' variable. Also assign the write API Key to the
+% 'writeAPIKey' variable below. You can find the write API Key in the right
+% side pane of this page.
+
+% TODO - Replace the [] with channel ID to read data from:
+readChannelID = 868468;
+% TODO - Enter the Read API Key between the '' below:
+readAPIKey = '0TGZ9LBUZMJOHBXT';
+
+%% Read Data %%
+data = thingSpeakRead(readChannelID, 'ReadKey', readAPIKey);
+api = 'https://scary-flesh.herokuapp.com/write/[uid]/'
+url = [api num2str(data(2)) '/' num2str(data(3)) '/' num2str(data(5)) '/' num2str(data(1)) '/' num2str(data(4)) '/' num2str(data(6)) ]
+%disp(url)
+data = webread(url);
